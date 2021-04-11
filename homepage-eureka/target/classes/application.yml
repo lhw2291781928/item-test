@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: homepage-eurkea
+
+server:
+  port: 8000
+
+eureka:
+  instance:
+    #主机名
+    hostname: localhost
+  client:
+    #表示是否从eureka server中获取注册信息 默认为true，单点的eureka server需设置为false
+    fetch-registry: false
+    #表示 是否将自己注册到eureka server,默认为true ,同理设置为false
+    register-with-eureka: false
+    service-url:
+      #yml 配置文件key：value 时，value和冒号之间必须有空格
+     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

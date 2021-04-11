@@ -1,0 +1,3 @@
+com\imooc\homepage\ZuulGetWayApplication.class
+com\imooc\homepage\filter\PreRequestFilter.class
+com\imooc\homepage\filter\AccessFilter.class
