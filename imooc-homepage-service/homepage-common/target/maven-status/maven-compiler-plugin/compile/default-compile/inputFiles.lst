@@ -1,3 +1,5 @@
-D:\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\CourseInfoRequest.java
-D:\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\CourseInfo.java
-D:\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\UserInfo.java
+D:\workspaces\items-test\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\util\RedisUtils.java
+D:\workspaces\items-test\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\CourseInfoRequest.java
+D:\workspaces\items-test\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\CourseInfo.java
+D:\workspaces\items-test\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\UserInfo.java
+D:\workspaces\items-test\2020\spring-cloud\imooc-homepage-service\homepage-common\src\main\java\com\imooc\homepage\model\config\RedisConfig.java

@@ -6,7 +6,7 @@ import com.imooc.homepage.annotation.Log;
 import com.imooc.homepage.model.CourseInfo;
 import com.imooc.homepage.model.CourseInfoRequest;
 import com.imooc.homepage.service.ICourseService;
-import com.imooc.homepage.util.AparameterUtils;
+import com.imooc.homepage.util.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,10 +28,12 @@ public class HomePageCourseController {
      * 课程服务实现 接口
      */
     private final ICourseService courseService;
+    private final RedisUtils redisUtils;
 
 
-    public HomePageCourseController(ICourseService courseService) {
+    public HomePageCourseController(ICourseService courseService,RedisUtils redisUtils) {
         this.courseService = courseService;
+        this.redisUtils = redisUtils;
     }
 
     @GetMapping("course")
@@ -39,14 +41,13 @@ public class HomePageCourseController {
     public CourseInfo getCourseInfo(Long id){
         log.info("<homepage-course>: get course -> {}",id);
         System.out.println(courseService.getCourseInfo(id));
-        return courseService.getCourseInfo(id);
+        CourseInfo courseInfo = (CourseInfo) redisUtils.get("cour" + id);
+        return courseInfo == null? courseService.getCourseInfo(id):courseInfo;
     }
 
     @PostMapping("courses")
 
     public List<CourseInfo> getCourseInfos(@RequestBody @Aparameter CourseInfoRequest request){
-        //调用自定义注解
-        AparameterUtils.parameterAnnotation(this.getClass());
         log.info("<homepage-course: get courses ->{}", JSON.toJSONString(request));
         System.out.println(courseService.getCourseInfos(request));
         return courseService.getCourseInfos(request);

@@ -29,6 +29,9 @@ public class CourseServiceImpl implements ICourseService {
 
     private final HomePageCourseDao homePageCourseDao;
 
+    @Autowired
+    private com.imooc.homepage.util.RedisUtils redisUtils;
+
     /**
      * <h2>通过构造方法的方式 注入对象</h2>
      *
@@ -43,7 +46,7 @@ public class CourseServiceImpl implements ICourseService {
     @Override
     public CourseInfo getCourseInfo(Long id) {
         Optional<HomePageCourse> course = homePageCourseDao.findById(id);
-
+        redisUtils.set("cour" + id,buildCourseInfo(course.orElse(HomePageCourse.invalid())));
         return buildCourseInfo(course.orElse(HomePageCourse.invalid()));
     }
 

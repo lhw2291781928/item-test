@@ -1,4 +1,6 @@
 com\imooc\homepage\model\CourseInfoRequest.class
 com\imooc\homepage\model\CourseInfo$CourseInfoBuilder.class
+com\imooc\homepage\config\RedisConfig.class
 com\imooc\homepage\model\CourseInfo.class
 com\imooc\homepage\model\UserInfo.class
+com\imooc\homepage\util\RedisUtils.class
