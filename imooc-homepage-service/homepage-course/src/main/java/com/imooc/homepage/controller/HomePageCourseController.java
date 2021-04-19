@@ -1,8 +1,6 @@
 package com.imooc.homepage.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.homepage.annotation.Aparameter;
-import com.imooc.homepage.annotation.Log;
 import com.imooc.homepage.model.CourseInfo;
 import com.imooc.homepage.model.CourseInfoRequest;
 import com.imooc.homepage.service.ICourseService;
@@ -37,7 +35,6 @@ public class HomePageCourseController {
     }
 
     @GetMapping("course")
-    @Log
     public CourseInfo getCourseInfo(Long id){
         log.info("<homepage-course>: get course -> {}",id);
         System.out.println(courseService.getCourseInfo(id));
@@ -46,8 +43,7 @@ public class HomePageCourseController {
     }
 
     @PostMapping("courses")
-
-    public List<CourseInfo> getCourseInfos(@RequestBody @Aparameter CourseInfoRequest request){
+    public List<CourseInfo> getCourseInfos(@RequestBody  CourseInfoRequest request){
         log.info("<homepage-course: get courses ->{}", JSON.toJSONString(request));
         System.out.println(courseService.getCourseInfos(request));
         return courseService.getCourseInfos(request);
